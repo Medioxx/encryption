@@ -3,6 +3,9 @@ package Main;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class openfile {
 	
@@ -34,6 +37,26 @@ public class openfile {
 			e.printStackTrace();
 		}
 		return nAll.toString();
+	}
+	
+	public void writeText(String message) 
+	{
+		String nameOfCodedFile;
+		String[] temp;
+		temp=this.nameOfFile.split("\\.");
+		nameOfCodedFile=temp[0]+"-crypted.txt";
+		File f = new File(nameOfCodedFile);
+		
+		try(PrintWriter out =new PrintWriter(new FileWriter(f));)
+		{
+			f.createNewFile();
+			out.println(message);
+			
+		}catch(IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		
 	}
 
 }

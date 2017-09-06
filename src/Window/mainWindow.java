@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import Main.openfile;
+import Ciphers.*;
 
 public class mainWindow extends JFrame implements ActionListener {
 
@@ -50,7 +51,9 @@ public class mainWindow extends JFrame implements ActionListener {
 		if(evt.getSource()==this.crypto) 
 		{
 			openfile file = new openfile(path.getText());
-			System.out.println(file.getText());
+			Caesar code= new Caesar(file.getText(), 5);
+			file.writeText(code.code());
+			
 		}
 	}
 	
