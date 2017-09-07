@@ -53,6 +53,8 @@ public class mainWindow extends JFrame implements ActionListener {
 			openfile file = new openfile(path.getText());
 			Caesar code= new Caesar(file.getText(), 5);
 			file.writeText(code.code());
+			resultWindow window = new resultWindow("Result", "Task done");
+			window.setVisible(true);
 			
 		}
 	}
